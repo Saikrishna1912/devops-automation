@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-        maven 'maven_3_5_0'
+        maven 'maven'
     }
     stages{
         stage('Build Maven'){
@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t javatechie/devops-integration .'
+                    sh 'docker build -t saikrishna1912/Kubernetes .'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                    sh 'docker login -u javatechie -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push javatechie/devops-integration'
+                   sh 'docker push saikrishna1912/kubernetes'
                 }
             }
         }
